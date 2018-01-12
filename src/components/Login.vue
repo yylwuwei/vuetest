@@ -1,8 +1,10 @@
 <template>
   <div class="helloyy">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-   
+   用 户: <input type="text" v-model="usertext.name" placeholder="请输入用户名">
+   <br> <br>
+   密 码: <input type="password" v-model="usertext.pwd" placeholder="请输入密码">
+   <br> <br>
+   <button type="button" @click="login">登 录</button>
   </div>
 </template>
 
@@ -11,7 +13,16 @@ export default {
   name: 'Login',
   data () {
     return {
-      msg: 'Welcome to YYL Vue demo! hh'
+      usertext: {
+        name: '',
+        pwd: ''
+      }
+    }
+  },
+  methods: {
+    login: function () {
+      this.$router.push('/Home')
+      console.log('yyl login log')
     }
   }
 }
