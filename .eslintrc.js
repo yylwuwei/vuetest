@@ -20,6 +20,10 @@ module.exports = {
     // allow async-await
     'generator-star-spacing': 'off',
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
-  }
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    // yyl add: close semi check on the end
+    'semi': [0],
+    // yyl add: empty lines is allowed
+    "no-multiple-empty-lines": [0,{"max": 5}]
+}
 }

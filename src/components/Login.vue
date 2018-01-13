@@ -23,18 +23,18 @@ export default {
     login: function () {
       this.$ajax.get('/api/login?name=yeyulin&pwd=866')
       .then(function (response) {
-        console.log(response)
-        var retvalue = response.data
-        if(retvalue == 'login_ok'){
-          this.$router.push('/Home')
-          console.log('login success.')
-        }
-        else{
-          console.log('login fail.')
+        console.log(response);
+        var retvalue = response.data;
+        // 检测登录的结果是否正确
+        if (retvalue === 'login_ok') {
+          this.$router.push('/Home');
+          console.log('login success.');
+        } else {
+          console.log('login fail.');
         }
       }.bind(this))
       .catch(function (error) {
-        console.log(error)
+        console.log(error);
       })
     }
   }
