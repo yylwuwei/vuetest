@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     login: function () {
-      this.$ajax.get('http://127.0.0.1:9090/login?name=yeyulin&pwd=866')
+      this.$ajax.get('/api/login?name=yeyulin&pwd=866')
       .then(function (response) {
         console.log(response)
         this.$router.push('/Home')
