@@ -24,8 +24,14 @@ export default {
       this.$ajax.get('/api/login?name=yeyulin&pwd=866')
       .then(function (response) {
         console.log(response)
-        this.$router.push('/Home')
-        console.log('yyl login log')
+        var retvalue = response.data
+        if(retvalue == 'login_ok'){
+          this.$router.push('/Home')
+          console.log('login success.')
+        }
+        else{
+          console.log('login fail.')
+        }
       }.bind(this))
       .catch(function (error) {
         console.log(error)
