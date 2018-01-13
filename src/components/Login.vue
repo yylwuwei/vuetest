@@ -21,8 +21,15 @@ export default {
   },
   methods: {
     login: function () {
-      this.$router.push('/Home')
-      console.log('yyl login log')
+      this.$ajax.get('http://127.0.0.1:9090/login?name=yeyulin&pwd=866')
+      .then(function (response) {
+        console.log(response)
+        this.$router.push('/Home')
+        console.log('yyl login log')
+      }.bind(this))
+      .catch(function (error) {
+        console.log(error)
+      })
     }
   }
 }
