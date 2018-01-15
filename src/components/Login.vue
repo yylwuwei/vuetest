@@ -21,7 +21,15 @@ export default {
   },
   methods: {
     login: function () {
-      this.$ajax.get('/api/login?name=yeyulin&pwd=866')
+      fetch('http://127.0.0.1:9090/login?name=yeyulin&pwd=866')
+      .then(function (response) {
+        console.log(response);
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+      })
+      this.$axiosobj.get('/api/login?name=yeyulin&pwd=866')
       .then(function (response) {
         console.log(response);
         var retvalue = response.data;

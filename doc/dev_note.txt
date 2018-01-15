@@ -9,3 +9,12 @@ cookie和session要上，用上vuex的状态管理；
 
 做一些基础的网页布局，包括登录页面和主页；
 能够以列表的形式，加载不确定行的数据；
+
+ .then(function (response) {
+        console.log(response);
+      })
+
+ .then(response => response.json())
+      .then(data => {
+        console.log(data)
+      })
