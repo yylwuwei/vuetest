@@ -9,6 +9,19 @@
 </template>
 
 <script>
+function getNumber () {
+  var p = new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      var num = 9;
+      if (num <= 5) {
+        resolve('resolve_param');
+      } else {
+        reject(new Error('num is too big.'));
+      }
+    }, 2000);
+  });
+  return p;
+}
 export default {
   name: 'Login',
   data () {
@@ -21,6 +34,15 @@ export default {
   },
   methods: {
     login: function () {
+      getNumber()
+      .then(function (data) {
+        console.log('resolved');
+        console.log(data);
+      })
+      .catch(function (reason) {
+        console.log('rejected');
+        console.log(reason);
+      })
       fetch('http://127.0.0.1:9090/login?name=yeyulin&pwd=866')
       .then(function (response) {
         console.log(response);

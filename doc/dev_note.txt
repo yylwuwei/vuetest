@@ -1,5 +1,5 @@
 待办事宜：
-继续使用云项目的类似fetch机制封装完成数据交互；
+继续使用云项目的类似fetch, promise机制封装完成数据交互；
 cookie和session要上，用上vuex的状态管理；
 组件之间的数据传递要用上；
 组件之间的局部跳转，不通过路由的机制，类似于tab页面；
@@ -18,3 +18,7 @@ cookie和session要上，用上vuex的状态管理；
       .then(data => {
         console.log(data)
       })
+
+
+待探索疑问：
+1、尝试fetch的时候，一直json化失败，后来服务器端返回改为  res.end('"login_ok"');，才搞定了，然后才能获取到data的数据。
