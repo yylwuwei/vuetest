@@ -1,14 +1,32 @@
 待办事宜：
-继续使用云项目的类似fetch, promise机制封装完成数据交互；
+
+了解websocket的使用；
 cookie和session要上，用上vuex的状态管理；
 组件之间的数据传递要用上；
 组件之间的局部跳转，不通过路由的机制，类似于tab页面；
 引入element的元素进来；
 
-阅读葛然的代码，并交流沟通；
+
+已初步完成：
+
+了解一下主要的组件，电站页面的图表、电站运行状态、个人中心页面的列表、地图组件；
+有一个select.vue是干嘛的？
+了解一下页面数据的来源；
+了解现在的光伏项目的页面切换机制；
+vue的网页项目，如何调试？如何监控变量？
+vscode的调试控制台，如何使用？有哪些用处？
+IDE配置；整体框架代码阅读；核心组件研究；
+
+开通gitlab账号；
+安装git相关软件；
+git仓库完成关联；
+改动IP地址；
+申请本机电脑联网权限；
+本机调试环境搭建；
 
 做一些基础的网页布局，包括登录页面和主页；
 能够以列表的形式，加载不确定行的数据；
+继续使用云项目的类似fetch, promise机制封装完成数据交互；
 
  .then(function (response) {
         console.log(response);
@@ -21,30 +39,9 @@ cookie和session要上，用上vuex的状态管理；
 
 
 待探索疑问：
+
 1、尝试fetch的时候，一直json化失败，后来服务器端返回改为  res.end('"login_ok"');，才搞定了，然后才能获取到data的数据。
 
+2、目前仅仅解决了返回的对象json化的问题，但是不能设置返回的status的值，如果设置，那么，json化会失败，也就获取不到data的值。目前服务端的代码，是使用原始的node.js写的，并未用到express。
 
-function loginCheck () {
-      var p = new Promise () {function (resolve, reject) {
-        fetch('http://127.0.0.1:9090/login?name=yeyulin&pwd=866')
-        .then(function (response) {
-          console.log(response);
-          return response.json();
-        })
-        .then(function (data) {
-          console.log(data);
-          var retvalue = data;
-          // 检测登录的结果是否正确
-          if (retvalue === 'login_ok') {
-            console.log('login success.');
-            resolve(data);
-          } else {
-            console.log('login fail.');
-            reject(new Error('login err.'));
-          }})}
-          return p;
-      }
-    }
-    
-    
-      
+3、通过函数名去调用，和通过函数返回的对象去调用，有什么区别？

@@ -12,7 +12,6 @@ var server = http.createServer(function(req,res){
     var pathname = url.parse(req.url).pathname;
     var paramStr = url.parse(req.url).query;
     var param = querystring.parse(paramStr);
-
     console.log(pathname);
     console.log(param);
 
@@ -20,7 +19,9 @@ var server = http.createServer(function(req,res){
     res.setHeader("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
     res.setHeader('Content-Type','text/plain');
+    //res.writeHeader(205);
     res.end('"login_err"');
+
 });
 
 server.listen(port,hostName,function(){
