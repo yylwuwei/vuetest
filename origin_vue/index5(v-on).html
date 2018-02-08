@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            TestPageYYL5 : v-on
+        </title>
+    </head>
+
+    <body>
+        <!-- 条件渲染指令 -->
+        <div id="app">
+            <p><input type="text" v-model="message" /></p>
+            <p>
+                <!-- click事件直接绑定一个方法 -->
+                <button v-on:click="greet"> Greet </button>
+            </p>
+            <p>
+                <!-- click事件使用内联语句 -->
+                <button v-on:click="say('Hi')"> Hi </button>
+            </p>
+        </div>
+    </body>
+
+    <script src="js/vue.js"></script>
+
+    <script>
+        var vmObj = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello, world!'
+            },
+            methods:{
+                //greet: function(){
+                //    alert(this.message)
+                //}
+                say: function(msg){
+                    alert(msg)
+                }
+            }
+        })
+    </script>
+</html>

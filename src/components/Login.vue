@@ -4,7 +4,7 @@
    <br> <br>
    密 码: <input type="password" v-model="usertext.pwd" placeholder="请输入密码">
    <br> <br>
-   <button type="button" @click="login2">登 录</button>
+   <button type="button" @click="login3">登 录</button>
   </div>
 </template>
 
@@ -34,7 +34,7 @@ function checkLogin () {
 function getNumber () {
   var p = new Promise(function (resolve, reject) {
     setTimeout(function () {
-      var num = 9;
+      var num = 2;
       if (num <= 5) {
         resolve('resolve_param');
       } else {
@@ -55,16 +55,6 @@ export default {
     }
   },
   methods: {
-    login2: function () {
-      checkLogin()
-      .then(function (data) {
-        console.log(data);
-        this.$router.push('/Home');
-      }.bind(this))
-      .catch(function (reason) {
-        console.log(reason);
-      })
-    },
     login: function () {
       getNumber()
       .then(function (data) {
@@ -75,14 +65,18 @@ export default {
         console.log('rejected');
         console.log(reason);
       })
-      fetch('http://127.0.0.1:9090/login?name=yeyulin&pwd=866')
-      .then(function (response) {
-        console.log(response);
-        return response.json();
-      })
+    },
+    login2: function () {
+      checkLogin()
       .then(function (data) {
         console.log(data);
+        this.$router.push('/Home');
+      }.bind(this))
+      .catch(function (reason) {
+        console.log(reason);
       })
+    },
+    login3: function () {
       this.$axiosobj.get('/api/login?name=yeyulin&pwd=866')
       .then(function (response) {
         console.log(response);

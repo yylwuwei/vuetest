@@ -1,0 +1,8 @@
+1、文件/资源命名
+一般情况下全小写，以减号来分隔。
+i-love-underscores.html
+thousand-and-one-scripts.js
+特定情况，需要对文件增加前后缀或特定扩展名，可使用点分隔符。
+my-file.min.css
+
+
