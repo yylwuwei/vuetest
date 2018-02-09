@@ -1,63 +1,60 @@
 <template>
-
   <div class="helloyu">
+    <el-container>
 
-<el-container>
-  <el-header>
+      <el-header>
+        <el-menu
+          class="el-menu-demo"
+          mode="horizontal"
+          @select="handleSelect"
+          background-color="#545c64"
+          text-color="#fff"
+          active-text-color="#ffd04b">
+          <el-menu-item index="1">电站信息</el-menu-item>
+          <el-submenu index="2">
+            <template slot="title">电站中心</template>
+            <el-menu-item index="2-1">电站列表</el-menu-item>
+            <el-menu-item index="2-2">电站位置</el-menu-item>
+            <el-menu-item index="2-3">电站消息</el-menu-item>
+          </el-submenu>
+          <el-menu-item index="3">联系我们</el-menu-item>
+        </el-menu>
+      </el-header>
+      
+      <el-main>
+        <button @click="goValue"> 数值 </button>
+        <button @click="goChart"> 图表 </button>
+        <!--
+        <v-show-value v-if="active === 'showValue'"></v-show-value>
+        <v-show-chart v-if="active === 'showChart'"></v-show-chart>
+        -->
+        &nbsp;
+        <router-link to="/ShowValue"> Go to value </router-link>
+        &nbsp;
+        <router-link to="/ShowChart"> Go to chart </router-link>  
+        <router-view></router-view>
+      </el-main>
+      
+      <el-footer>Footer</el-footer>
 
-<el-menu
-  class="el-menu-demo"
-  mode="horizontal"
-  @select="handleSelect"
-  background-color="#545c64"
-  text-color="#fff"
-  active-text-color="#ffd04b">
-  <el-menu-item index="1">处理中心</el-menu-item>
-  <el-submenu index="2">
-    <template slot="title">我的工作台</template>
-    <el-menu-item index="2-1">选项1</el-menu-item>
-    <el-menu-item index="2-2">选项2</el-menu-item>
-    <el-menu-item index="2-3">选项3</el-menu-item>
-  </el-submenu>
-  <el-menu-item index="3"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
-</el-menu>
+  </el-container>
 
-  </el-header>
-  <el-main>
+  {{ msg }}
+  <br><br>
+  <button type="button" @click="exit">退 出</button>
 
-    <button @click="goValue"> 数值 </button>
-    <button @click="goChart"> 图表 </button>
-
-    <!--
-    <v-show-value v-if="active === 'showValue'"></v-show-value>
-    <v-show-chart v-if="active === 'showChart'"></v-show-chart>
-    -->
-    &nbsp;
-    <router-link to="/ShowValue"> Go to value </router-link>
-    &nbsp;
-    <router-link to="/ShowChart"> Go to chart </router-link>
-
-    <router-view></router-view>
-
-  </el-main>
-  <el-footer>Footer</el-footer>
-</el-container>
-
-    {{ msg }}
-    <br><br>
-    <button type="button" @click="exit">退 出</button>
   </div>
 </template>
 
 <script>
-import VShowValue from '@/components/ShowValue'
-import VShowChart from '@/components/ShowChart'
+// import VShowValue from '@/components/ShowValue'
+// import VShowChart from '@/components/ShowChart'
 
 export default {
   name: 'Home',
-  components: {
-    'v-show-value': VShowValue, 'v-show-chart': VShowChart
-  },
+  // components: {
+  //  'v-show-value': VShowValue, 'v-show-chart': VShowChart
+  // },
   data () {
     return {
       msg: 'Welcome to home page',
@@ -81,13 +78,18 @@ export default {
         console.log('hello1');
         this.active = 'showValue';
         this.$router.push('/ShowValue');
+      } else if (key === '2-1') {
+        console.log('hello 2-1');
+      } else if (key === '2-2') {
+        console.log('hello 2-2');
+      } else if (key === '2-3') {
+        console.log('hello 2-3');
       } else if (key === '3') {
         console.log('hello3');
         this.active = 'showChart';
         this.$router.push('/ShowChart');
       }
     }
-
   }
 }
 </script>
