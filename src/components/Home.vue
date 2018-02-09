@@ -25,8 +25,19 @@
   </el-header>
   <el-main>
 
+    <button @click="goValue"> 数值 </button>
+    <button @click="goChart"> 图表 </button>
+
+    <!--
     <v-show-value v-if="active === 'showValue'"></v-show-value>
     <v-show-chart v-if="active === 'showChart'"></v-show-chart>
+    -->
+    &nbsp;
+    <router-link to="/ShowValue"> Go to value </router-link>
+    &nbsp;
+    <router-link to="/ShowChart"> Go to chart </router-link>
+
+    <router-view></router-view>
 
   </el-main>
   <el-footer>Footer</el-footer>
@@ -58,14 +69,22 @@ export default {
       console.log('yyl exit')
       this.$router.push('/Login')
     },
+    goValue: function () {
+      this.$router.push('/ShowValue');
+    },
+    goChart: function () {
+      this.$router.push('/ShowChart');
+    },
     handleSelect (key, keyPath) {
       console.log(key, keyPath);
       if (key === '1') {
         console.log('hello1');
         this.active = 'showValue';
+        this.$router.push('/ShowValue');
       } else if (key === '3') {
         console.log('hello3');
         this.active = 'showChart';
+        this.$router.push('/ShowChart');
       }
     }
 
