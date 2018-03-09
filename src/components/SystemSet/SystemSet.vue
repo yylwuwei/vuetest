@@ -1,15 +1,15 @@
 <template>
-  <div class="divShowValue">
+  <div class="divSystemSet">
     {{ msg }}
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ShowValue',
+  name: 'SystemSet',
   data () {
     return {
-      msg: 'Welcome to ShowValue page'
+      msg: 'Welcome to SystemSet page'
     }
   },
   methods: {
@@ -23,7 +23,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.divShowValue {
+.divSystemSet {
   font-weight: normal;
+  height: 500px;
 }
 </style>

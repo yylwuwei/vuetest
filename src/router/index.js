@@ -2,8 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/components/Login'
 import Home from '@/components/Home'
-import ShowValue from '@/components/ShowValue'
-import ShowChart from '@/components/ShowChart'
+import StationInfo55 from '@/components/StationInfo/StationInfo'
+import StationManage55 from '@/components/StationManage/StationManage'
+import SystemSet55 from '@/components/SystemSet/SystemSet'
 
 Vue.use(Router)
 
@@ -25,14 +26,19 @@ export default new Router({
       component: Home,
       children: [
         {
-          path: '/ShowValue',
-          name: 'ShowValue',
-          component: ShowValue
+          path: 'StationInfo',
+          name: 'StationInfo44',
+          component: StationInfo55
         },
         {
-          path: '/ShowChart',
-          name: 'ShowChart',
-          component: ShowChart
+          path: 'StationManage',
+          name: 'StationManage44',
+          component: StationManage55
+        },
+        {
+          path: 'SystemSet',
+          name: 'SystemSet44',
+          component: SystemSet55
         }
       ]
     }

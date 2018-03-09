@@ -77,6 +77,7 @@ export default {
       })
     },
     login3: function () {
+      this.$router.push('/Home/StationInfo');
       this.$axiosobj.get('/api/login?name=yeyulin&pwd=866')
       .then(function (response) {
         console.log(response);

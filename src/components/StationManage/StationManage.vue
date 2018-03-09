@@ -1,15 +1,15 @@
 <template>
-  <div class="divShowChart">
-    {{ msg2 }}
+  <div class="divStationManage">
+    {{ msg }}
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ShowChart',
+  name: 'StationManage',
   data () {
     return {
-      msg2: 'Welcome to ShowCharts page'
+      msg: 'Welcome to StationManage page'
     }
   },
   methods: {
@@ -23,7 +23,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.divShowChart {
+.divStationManage {
   font-weight: normal;
+    height: 500px;
 }
 </style>

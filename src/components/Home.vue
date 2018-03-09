@@ -3,58 +3,39 @@
     <el-container>
 
       <el-header>
-        <el-menu
-          class="el-menu-demo"
-          mode="horizontal"
-          @select="handleSelect"
-          background-color="#545c64"
-          text-color="#fff"
-          active-text-color="#ffd04b">
-          <el-menu-item index="1">电站信息</el-menu-item>
-          <el-submenu index="2">
-            <template slot="title">电站中心</template>
-            <el-menu-item index="2-1">电站列表</el-menu-item>
-            <el-menu-item index="2-2">电站位置</el-menu-item>
-            <el-menu-item index="2-3">电站消息</el-menu-item>
-          </el-submenu>
-          <el-menu-item index="3">联系我们</el-menu-item>
-        </el-menu>
+        <v-home-top></v-home-top>
       </el-header>
       
       <el-main>
-        <button @click="goValue"> 数值 </button>
-        <button @click="goChart"> 图表 </button>
-        <!--
-        <v-show-value v-if="active === 'showValue'"></v-show-value>
-        <v-show-chart v-if="active === 'showChart'"></v-show-chart>
+        
+        <!--        
+        {{ msg }}
         -->
-        &nbsp;
-        <router-link to="/ShowValue"> Go to value </router-link>
-        &nbsp;
-        <router-link to="/ShowChart"> Go to chart </router-link>  
+        
         <router-view></router-view>
+
       </el-main>
       
-      <el-footer>Footer</el-footer>
+      <el-footer>
+        <v-home-bottom></v-home-bottom>
+      </el-footer>
 
   </el-container>
 
-  {{ msg }}
-  <br><br>
-  <button type="button" @click="exit">退 出</button>
+ 
 
   </div>
 </template>
 
 <script>
-// import VShowValue from '@/components/ShowValue'
-// import VShowChart from '@/components/ShowChart'
+import VHomeTop from '@/components/Common/HomeTop'
+import VHomeBottom from '@/components/Common/HomeBottom'
 
 export default {
   name: 'Home',
-  // components: {
-  //  'v-show-value': VShowValue, 'v-show-chart': VShowChart
-  // },
+  components: {
+    VHomeTop, VHomeBottom
+  },
   data () {
     return {
       msg: 'Welcome to home page',
@@ -65,30 +46,6 @@ export default {
     exit: function () {
       console.log('yyl exit')
       this.$router.push('/Login')
-    },
-    goValue: function () {
-      this.$router.push('/ShowValue');
-    },
-    goChart: function () {
-      this.$router.push('/ShowChart');
-    },
-    handleSelect (key, keyPath) {
-      console.log(key, keyPath);
-      if (key === '1') {
-        console.log('hello1');
-        this.active = 'showValue';
-        this.$router.push('/ShowValue');
-      } else if (key === '2-1') {
-        console.log('hello 2-1');
-      } else if (key === '2-2') {
-        console.log('hello 2-2');
-      } else if (key === '2-3') {
-        console.log('hello 2-3');
-      } else if (key === '3') {
-        console.log('hello3');
-        this.active = 'showChart';
-        this.$router.push('/ShowChart');
-      }
     }
   }
 }
