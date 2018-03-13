@@ -4,11 +4,16 @@
    <br> <br>
    密 码: <input type="password" v-model="usertext.pwd" placeholder="请输入密码">
    <br> <br>
-   <button type="button" @click="login3">登 录</button>
+   <button type="button" @click="changeMsg">登 录</button>
+  
+  <p>gettersMsg数据目前是: {{ gettersMsg }}</p>
+
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
+
 function checkLogin () {
   var p = new Promise(function (resolve, reject) {
     fetch('http://127.0.0.1:9090/login?name=yeyulin&pwd=866')
@@ -54,7 +59,11 @@ export default {
       }
     }
   },
+  computed: {...mapGetters(['gettersMsg'])},
+  // 对应getters.技术中的gettersMsg
+  // 对应 Actions中changeMsg方法|| 映射this.changeMsg() 为 this.$store.dispatch('changeMsg')
   methods: {
+    ...mapActions(['changeMsg']),
     login: function () {
       getNumber()
       .then(function (data) {
@@ -77,7 +86,6 @@ export default {
       })
     },
     login3: function () {
-      this.$router.push('/Home/StationInfo');
       this.$axiosobj.get('/api/login?name=yeyulin&pwd=866')
       .then(function (response) {
         console.log(response);
@@ -93,6 +101,13 @@ export default {
       .catch(function (error) {
         console.log(error);
       })
+    },
+    login4: function () {
+      window.localStorage.setItem('username', 'geran');
+      window.localStorage.setItem('setpwd', '123456');
+      // this.$router.push('/Home/StationInfo');
+      // store.commit('increment');
+      // console.log(store.state.count);
     }
   }
 }
