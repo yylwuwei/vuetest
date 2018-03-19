@@ -24,6 +24,8 @@ module.exports = {
     // yyl add: close semi check on the end
     'semi': [0],
     // yyl add: empty lines is allowed
-    "no-multiple-empty-lines": [0,{"max": 5}]
+    "no-multiple-empty-lines": [0,{"max": 5}],
+    // yyl add: no unused vars
+    "no-unused-vars": [0, {"vars": "all", "args": "after-used"}]
 }
 }

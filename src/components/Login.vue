@@ -4,10 +4,8 @@
    <br> <br>
    密 码: <input type="password" v-model="usertext.pwd" placeholder="请输入密码">
    <br> <br>
-   <button type="button" @click="changeMsg">登 录</button>
-  
-  <p>gettersMsg数据目前是: {{ gettersMsg }}</p>
-
+   <button type="button" @click="login5">登 录</button>
+   <p>gettersMsg数据目前是: {{ gettersMsg }}</p>
   </div>
 </template>
 
@@ -59,7 +57,9 @@ export default {
       }
     }
   },
-  computed: {...mapGetters(['gettersMsg'])},
+  computed: {
+    ...mapGetters(['gettersMsg'])
+  },
   // 对应getters.技术中的gettersMsg
   // 对应 Actions中changeMsg方法|| 映射this.changeMsg() 为 this.$store.dispatch('changeMsg')
   methods: {
@@ -103,11 +103,18 @@ export default {
       })
     },
     login4: function () {
-      window.localStorage.setItem('username', 'geran');
-      window.localStorage.setItem('setpwd', '123456');
-      // this.$router.push('/Home/StationInfo');
-      // store.commit('increment');
-      // console.log(store.state.count);
+      window.localStorage.username = 'wuwei';
+      window.localStorage.userpwd = '123456';
+      this.$router.push('/Home/StationInfo');
+    },
+    login5: function () {
+      var username = 'wuwei';
+      this.$store.commit({
+        type: 'mutationsMsg',
+        msg: '我是修改后的数据~~~' + username
+      });
+      this.localStorage.msg = this.$store.state.msg;
+      this.$router.push('/Home/StationInfo');
     }
   }
 }

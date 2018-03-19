@@ -14,20 +14,26 @@
           <el-menu-item index="1">电站信息</el-menu-item>
           <el-menu-item index="2">电站管理</el-menu-item>
           <el-menu-item index="3">系统设置</el-menu-item>
+          <label class="userNameClass">{{ gettersMsg }}</label> &nbsp;
           <button type="button" @click="exit">退 出</button>
         </el-menu>
-
 
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
+
 export default {
   name: 'HomeTop',
   data () {
     return {
-      msg2: 'Welcome to HomeTop page'
+      msg2: 'Welcome to HomeTop page',
+      userName: localStorage.username
     }
+  },
+  computed: {
+    ...mapGetters(['gettersMsg'])
   },
   methods: {
     exit: function () {
@@ -57,5 +63,9 @@ export default {
 <style scoped>
 .divHomeTop {
   font-weight: normal;
+}
+.userNameClass {
+  font-weight: normal;
+  color: #FFFFFF;
 }
 </style>
