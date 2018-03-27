@@ -39,12 +39,15 @@ export default {
     msg66: function () {
       console.log('enter into computer msg');
       if (this.msg === '原始') {
-        this.$store.state.msg = window.localStorage.msg;
+        // this.$store.state.msg = window.localStorage.msg;
+        // this.$store.commit({ type: 'mutationMsgReload' });
+        this.$store.dispatch('changeMsgReload');
       }
       return this.$store.state.msg;
     }
   },
   methods: {
+    ...mapActions(['changeMsgReload']),
     exit: function () {
       console.log('yyl exit')
       this.$router.push('/Login')

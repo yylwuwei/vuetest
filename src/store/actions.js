@@ -4,3 +4,9 @@ export const changeMsg = ({commit}) => {
     msg: '我是修改后的数据~~~'
   });
 }
+
+export const changeMsgReload = ({commit}) => {
+  commit({
+    type: 'mutationMsgReload'
+  });
+}
