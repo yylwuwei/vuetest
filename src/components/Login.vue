@@ -113,7 +113,7 @@ export default {
         type: 'mutationsMsg',
         msg: '我是修改后的数据~~~' + username
       });
-      this.localStorage.msg = this.$store.state.msg;
+      window.localStorage.msg = this.$store.state.msg;
       this.$router.push('/Home/StationInfo');
     }
   }

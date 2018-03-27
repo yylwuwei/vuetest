@@ -14,6 +14,7 @@
           <el-menu-item index="1">电站信息</el-menu-item>
           <el-menu-item index="2">电站管理</el-menu-item>
           <el-menu-item index="3">系统设置</el-menu-item>
+          <label class="userNameClass">{{ msg66 }}</label> &nbsp;
           <label class="userNameClass">{{ gettersMsg }}</label> &nbsp;
           <button type="button" @click="exit">退 出</button>
         </el-menu>
@@ -22,7 +23,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters, mapActions, mapState } from 'vuex';
 
 export default {
   name: 'HomeTop',
@@ -33,7 +34,15 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['gettersMsg'])
+    ...mapGetters(['gettersMsg']),
+    ...mapState(['msg']),
+    msg66: function () {
+      console.log('enter into computer msg');
+      if (this.msg === '原始') {
+        this.$store.state.msg = window.localStorage.msg;
+      }
+      return this.$store.state.msg;
+    }
   },
   methods: {
     exit: function () {

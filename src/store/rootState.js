@@ -1,5 +1,5 @@
 const state = {
-  msg: '我是原始数据'
+  msg: '原始'
 }
 
 export default state;
