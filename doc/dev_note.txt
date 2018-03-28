@@ -1,10 +1,5 @@
 待办事宜：
 
-vuex数据在页面刷新时消失问题处理；
-
-考虑尝试VUE多页面应用；
-
-cookie和session要上，用上vuex的状态管理；
 组件之间的数据传递要用上；
 
 后台模拟服务器使用express改写；
@@ -18,8 +13,9 @@ cookie和session要上，用上vuex的状态管理；
 尝试一下打包发布；
 尝试websocket的使用；
 考虑在开发的过程中，制定开发规范，比如引入类型、Use strict；
-进一步引入测试框架；
 
+进一步引入测试框架；
+考虑尝试VUE多页面应用；
 了解websocket的使用；
 
 
@@ -37,6 +33,9 @@ cookie和session要上，用上vuex的状态管理；
 
 
 已初步完成：
+
+cookie和session要上，用上vuex的状态管理；
+vuex数据在页面刷新时消失问题处理；
 
 组件划分以及目录重构；
 

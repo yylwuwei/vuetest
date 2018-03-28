@@ -4,7 +4,7 @@
     {{ msg2 }}
 -->
 
-            <el-menu
+        <el-menu
           class="el-menu-demo"
           mode="horizontal"
           @select="handleSelect"
@@ -14,6 +14,7 @@
           <el-menu-item index="1">电站信息</el-menu-item>
           <el-menu-item index="2">电站管理</el-menu-item>
           <el-menu-item index="3">系统设置</el-menu-item>
+          <label class="userNameClass">{{ logo }}</label> &nbsp;
           <label class="userNameClass">{{ msg66 }}</label> &nbsp;
           <label class="userNameClass">{{ gettersMsg }}</label> &nbsp;
           <button type="button" @click="exit">退 出</button>
@@ -33,6 +34,7 @@ export default {
       userName: localStorage.username
     }
   },
+  props: ['logo'],
   computed: {
     ...mapGetters(['gettersMsg']),
     ...mapState(['msg']),

@@ -1,9 +1,12 @@
 <template>
   <div class="helloyu">
+
+    <label class="userNameClass">{{ logo }}</label> &nbsp;
+
     <el-container>
 
       <el-header>
-        <v-home-top></v-home-top>
+        <v-home-top :logo="logoMsg"></v-home-top>
       </el-header>
       
       <el-main>
@@ -11,7 +14,6 @@
         <!--        
         {{ msg }}
         -->
-        
         <router-view></router-view>
 
       </el-main>
@@ -39,7 +41,8 @@ export default {
   data () {
     return {
       msg: 'Welcome to home page',
-      active: 'showValue'
+      active: 'showValue',
+      logoMsg: 'WiseWrong'
     }
   },
   methods: {
