@@ -14,6 +14,7 @@
           <el-menu-item index="1">电站信息</el-menu-item>
           <el-menu-item index="2">电站管理</el-menu-item>
           <el-menu-item index="3">系统设置</el-menu-item>
+          <input v-model="userYY" v-on:change="SetUserYY" />
           <label class="userNameClass">{{ logo }}</label> &nbsp;
           <label class="userNameClass">{{ msg66 }}</label> &nbsp;
           <label class="userNameClass">{{ gettersMsg }}</label> &nbsp;
@@ -31,7 +32,8 @@ export default {
   data () {
     return {
       msg2: 'Welcome to HomeTop page',
-      userName: localStorage.username
+      userName: localStorage.username,
+      userYY: 'userYY'
     }
   },
   props: ['logo'],
@@ -53,6 +55,9 @@ export default {
     exit: function () {
       console.log('yyl exit')
       this.$router.push('/Login')
+    },
+    SetUserYY: function () {
+      this.$emit('transferUser', this.userYY);
     },
     handleSelect (key, keyPath) {
       console.log(key, keyPath);

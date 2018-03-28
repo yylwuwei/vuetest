@@ -1,12 +1,13 @@
 <template>
   <div class="helloyu">
 
+    <label class="userNameClass">{{ user }}</label> &nbsp;
     <label class="userNameClass">{{ logo }}</label> &nbsp;
 
     <el-container>
 
       <el-header>
-        <v-home-top :logo="logoMsg"></v-home-top>
+        <v-home-top :logo="logoMsg" @transferUser="getUser"></v-home-top>
       </el-header>
       
       <el-main>
@@ -42,13 +43,17 @@ export default {
     return {
       msg: 'Welcome to home page',
       active: 'showValue',
-      logoMsg: 'WiseWrong'
+      logoMsg: 'WiseWrong',
+      user: ''
     }
   },
   methods: {
     exit: function () {
       console.log('yyl exit')
       this.$router.push('/Login')
+    },
+    getUser (msg) {
+      this.user = msg;
     }
   }
 }
