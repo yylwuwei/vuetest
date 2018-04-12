@@ -47,7 +47,21 @@ export default {
       user: ''
     }
   },
+  mounted () {
+    // this.init();
+  },
+  updated () {
+    this.init();
+  },
   methods: {
+    init () {
+      console.log('yyl, hello, world');
+      console.log(this.$route.path);
+      var strPath = this.$route.path;
+      if (strPath === '/Home/') {
+        this.$router.push('/Home/StationInfo');
+      }
+    },
     exit: function () {
       console.log('yyl exit')
       this.$router.push('/Login')

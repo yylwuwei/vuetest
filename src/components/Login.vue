@@ -1,10 +1,10 @@
 <template>
   <div class="helloyy">
-   用 户: <input type="text" v-model="usertext.name" placeholder="请输入用户名">
+   用 户: <input type="text" v-model="usertext.username" placeholder="请输入用户名">
    <br> <br>
-   密 码: <input type="password" v-model="usertext.pwd" placeholder="请输入密码">
+   密 码: <input type="password" v-model="usertext.password" placeholder="请输入密码">
    <br> <br>
-   <button type="button" @click="login5">登 录</button>
+   <button type="button" @click="login6">登 录</button>
    <p>gettersMsg数据目前是: {{ gettersMsg }}</p>
   </div>
 </template>
@@ -52,8 +52,8 @@ export default {
   data () {
     return {
       usertext: {
-        name: '',
-        pwd: ''
+        username: 'geran',
+        password: '12345678'
       }
     }
   },
@@ -115,6 +115,29 @@ export default {
       });
       window.localStorage.msg = this.$store.state.msg;
       this.$router.push('/Home/StationInfo');
+    },
+    login6: function () {
+      this.$axiosobj.post('https://www.zlgcloud.com/v1/auth/login', this.usertext)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+      this.$axiosobj.get('https://www.zlgcloud.com:443/v1/devices/0001?devtype=inverter')
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+      this.$axiosobj.get('https://www.zlgcloud.com:443/v1/devices/0001/data?devtype=inverter&starttime=15000')
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
     }
   }
 }
